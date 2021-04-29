@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+//------------------------------------------------------------------------------
+//
+//	共通設定 
+//  
+//------------------------------------------------------------------------------
+.pc {
+	@include sp {
+		display: none !important;
+	}
+}
+.sp {
+	@include pc {
+		display: none !important;
+	}
+}
+
+html {
+  font-size: 10px;
+  @include max-screen(360px) {
+    font-size: 8px;
+  }
+}
+body {
+  width: 100%;
+  color: $bodyColor;
+  font-family: $fontBody;
+  font-size: 1.6rem;
+  font-weight: 400;
+  @include tab {
+    font-size: 1.4rem;
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  // word-break: break-all;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  @include transition;
+  img {
+    @include transition;
+  }
+}
+img {
+	max-width: 100%;
+	height: auto;
+  vertical-align: bottom;
+  
+}
+
+
+@keyframes scrolldown{
+  0% {
+		transform: translateY(3px);
+		opacity: 1
+	}
+	50% {
+		transform: translateY(10px);
+		opacity: 0
+	}
+	60% {
+		transform: translateY(3px);
+		opacity: 0
+	}
+}
+
+@keyframes scrollup{
+  0%{top: calc(100% - 27px)}
+  100%{top:0%}
+}
+
+.is-animate {
+  opacity: 0;
+}
+.is-animated {
+  animation: fadein-bottom 1s .2s ease-out forwards;
+}
+@keyframes fadein-bottom {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

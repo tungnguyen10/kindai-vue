@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+@import "../base/_setting.scss";
+
+.share_bottom {
+  background: $yellow;
+  text-align: center;
+  padding-top: 42px;
+  padding-bottom: 63px;
+  @include sp{
+    padding-top: 19px;
+    padding-bottom: 28px;
+  }
+  h2 {
+    font-size: 2.6rem;
+    font-family: $fontBody;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 18px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -14%;
+      background: url(../assets/images/line_left.png) no-repeat center center/100% 100%;
+      width: 13px;
+      height: 25px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -14%;
+      background: url(../assets/images/line_right.png) no-repeat center center/100% 100%;
+      width: 13px;
+      height: 25px;
+    }
+    @include sp{
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      &::before, &::after{
+        width: 7px;
+        height: 14px;
+      }
+    }
+  }
+  &__content {
+    position: relative;
+    p {
+      position: absolute;
+      &.left {
+        left: 26px;
+        margin: 20px 0 0;
+        @include sp{
+          left: 15px;
+          margin: 10px 0 0;
+          width: 79px;
+        }
+      }
+      &.right {
+        right: 49px;
+        top: 15px;
+        @include sp{
+          right: 23px;
+          top: 8px;
+          width: 53px;
+        }
+      }
+    }
+  }
+  ul {
+    display: inline-flex;
+    li {
+      position: relative;
+      width: 118px;
+      @include sp{
+        width: 59px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -9.5%;
+        background: url(../assets/images/btn_tw.png) no-repeat center center/100% 100%;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      @include hover {
+        img {
+          bottom: -9.5%;
+        }
+      }
+      &:first-child {
+        margin-right: 20px;
+        @include sp{
+          margin-right: 11px;
+        }
+      }
+      img {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        bottom: 0;
+        @include transition;
+      }
+    }
+  }
+}

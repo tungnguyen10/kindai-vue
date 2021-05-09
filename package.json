@@ -42,7 +42,7 @@
     },
     "rules": {
       "no-unused-vars": 0,
-      "no-irregular-whitespace":0
+      "no-irregular-whitespace": 0
     }
   },
   "browserslist": [

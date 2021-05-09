@@ -2,6 +2,7 @@
   <div class="tutorial">
     <img src="../assets/images/tutorial.png" alt="">
     
+      <p class="btn-show-step" @click="step=1"></p>
     <div class="popup" v-show="step <= 5">
       <div class="popup__step step1 down" v-show="step == 1">
         <h2>STEP1</h2>

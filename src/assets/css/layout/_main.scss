@@ -116,7 +116,7 @@ body {
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 999;
-  // display: none;
+  display: none;
   max-width: 750px;
   margin: auto;
   &.open-modal {
@@ -598,4 +598,5 @@ body {
     z-index: 9;
     background: #fff;
   }
+  
 }

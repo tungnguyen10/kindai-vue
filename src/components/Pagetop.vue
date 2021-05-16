@@ -54,7 +54,6 @@
                 </dd>
              </dl>
             </div>
-         
            <div class="btn btn-pink btn_ok" @click="closeModal(),changePage('/tutorial')"><img src="../assets/images/btn_ok.png" alt="ok"></div>
         </div>
       </div>

@@ -8,8 +8,12 @@
 //------------------------------------------------------------------------------
 
 .kekka{
-  background: url(../assets/images/bg.jpg) repeat-y center center/100%;
+  background: url(/img/bg.af898849.jpg) repeat-y top center/100%;
   position: relative; 
+  &.active{
+    overflow: hidden;
+    max-height: 100vh;
+  }
   .btn-home{
     position: absolute;
     width: 80px;
@@ -28,7 +32,7 @@
     @include sp{
       width: 40px;
       height: 40px;
-      top: 1%;
+      top: 20px;
       left: 6%;
     }
   }
@@ -300,15 +304,21 @@
       padding: 3% 0 1%;
     }
     .left{
-      width: 75px;
+      
       left: 5%;
       top: 32%;
       display: block;
+      @include sp{
+        width: 75px;
+      }
     }
     .right{
-      width: 96px;
       right: 2%;
       top: 14%;
+      width: 186px;
+      @include sp{
+        width: 96px;
+      }
     }
   }
   .box-copy{
@@ -316,11 +326,12 @@
     text-align: center;
     padding: 1% 0 12%;
     cursor: pointer;
+    
     .copy-url{
+      position: relative;
       width: 56%;
       display: inline-block;
       margin: auto;
-      overflow: hidden;
       border-style: solid;
       border-width: 3px;
       border-color: rgb(31, 31, 31);
@@ -330,12 +341,102 @@
       font-weight: bold;
       padding: 2% 0;
       margin: 1% 0;
-
+      &::before{
+        content: "Copied";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        background: #5dd1ff;
+        padding: 2% 6%;
+        border-radius: 10px;
+        font-size: 18px;
+        opacity: 0;
+        @include transition;
+      }
+      &.open{
+        &::before{
+          opacity: 1;
+          top: -70%;
+        }
+      }
       @include sp{
         border-width: 2px;
         border-radius: 8px;
         font-size: 11px;
+        &::before{
+          font-size: 11px;
+        }
       }
     }
+  }
+  .play-again{
+    position: fixed;
+    width: 90%;
+    max-width: 675px;
+    top: 50%;
+    z-index: 99;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(31, 31, 31);
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    h2{
+      font-size: 50px;
+      font-weight: bold;
+      color: #fff;
+      background: #d28bff;
+      padding: 4.5% 0;
+      @include sp{
+        font-size: 25px;
+      }
+    }
+    .txt{
+      font-size: 22px;
+      font-weight: bold;
+      padding: 5% 0 4%;
+      line-height: (32/22);
+      @include sp{
+        font-size: 11px;
+      }
+    }
+    ul{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 9% 10%;
+      li{
+        width: 48%;
+       &:first-child{
+        &::after{
+          background: #8dc3f5;
+         }
+       }
+        span{
+          position: relative;
+          color: #fff;
+          z-index: 3;
+          font-weight: bold;
+          font-size: 50px;
+          bottom: 0;
+          line-height: 1;
+          @include transition;
+          @include sp{
+            font-size: 25px;
+          }
+        }
+        @include hover{
+          span{
+            bottom: -10px;
+          }
+        }
+      }
+    }
+
+
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="tutorial">
+  <div :class="[ showModal == true ? 'modal-open':'' , 'tutorial']">
     <div :class="['avatar_area' , choose_bg == choose_bg ? 'bg_0' + choose_bg :'']" >
       <div class="help" @click="step=1">?</div>
       <ul class="change_color" v-if="tab_active > 1">
@@ -15,7 +15,6 @@
         <ul>
           <li v-for="i in 6" :key="i" :class="[ 'change_0' + i ,'btn-item']"  @click="choose_bg= i" >
             <p><img :src="require('../assets/images/icon_color0' + i + '.png')" alt=""></p>
-            
           </li>
         </ul>
       </div>

@@ -10,6 +10,10 @@
 .tutorial{
   position: relative;
   height: 100vh;
+  &.modal-open{
+    max-height: 100vh;
+    overflow: hidden;
+  }
   .avatar_area {
     height: 82vh;
     position: relative;

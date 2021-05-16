@@ -1,6 +1,6 @@
 <template>
-  <div class="kekka">
-    <p class="btn-home"><img src="../assets/images/btn_home.png" alt=""></p>
+  <div :class="[openPlayAgain == true ? 'active':''  ,'kekka']">
+    <p class="btn-home" @click="openPlayAgain=true"><img src="../assets/images/btn_home.png" alt=""></p>
     <p class="btn-home right" @click='light = !light'><img src="../assets/images/btn_light.png" alt=""></p>
     <p :class="['confirm-img', light == true? 'active':'']" ><img src="../assets/images/kekka_image_confirm_01.png" alt=""></p>
     <p class="save">長押しで画像保存しよう！</p>
@@ -120,9 +120,13 @@
       <h2 class="ttl-share">タップでURLがコピーできるよ</h2>
       <div id="copy-url" class="copy-url" @click="copyClipboard()">https://Sample.com</div>
     </div>
-    <div class="abc">
-      <p class="a"></p>
-      <p class="b"></p>
+    <div class="play-again" v-if="openPlayAgain">
+      <h2>TOPページに戻る</h2>
+      <div class="txt">今の内容が破棄されてTOPページに戻ります。<br>よろしいですか？</div>
+      <ul>
+        <li class="btn" @click="openPlayAgain = false"><span>いいえ</span></li>
+        <li class="btn" @click="changePage('/')"><span>はい</span></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -137,6 +141,7 @@ export default {
   data() {
     return {
       light: true,
+      openPlayAgain: false,
     }
   },
   components: {
@@ -152,6 +157,10 @@ export default {
       $("body").append($temp);
       $temp.val($("#copy-url").text()).select();
       document.execCommand("copy");
+      $('.copy-url').addClass('open');
+      setTimeout(function() { 
+       $('.copy-url').removeClass('open');
+      }, 1000);
       $temp.remove();
     },
     

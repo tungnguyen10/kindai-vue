@@ -1,12 +1,15 @@
 <template>
   <div class="l-page-top">
     <div class="l-page-top__first">
-      <h2><img src="../assets/images/pagetop_ttl.png" alt="Redfish×近畿大学農学部 my Nogaku Styles"></h2>
+      <h2>
+        <p>Redfish<span>×</span>近畿大学農学部</p>
+        <img src="../assets/images/pagetop_ttl.png" alt="Redfish×近畿大学農学部 my Nogaku Styles">
+      </h2>
       <p class="txt">自分だけのオリジナルコーディネートで農学を着こなそう！<br>選んだアイテムからあなたにぴったりの学科が見つかるかも？！</p>
     </div>
     <div class="l-page-top__content">
       <p class="photo"><img src="../assets/images/img_character.png" alt="photo"></p>
-      <div class="btn-pink btn_start" @click="openModal('modal-01')"><img src="../assets/images/start.png" alt="start"></div>
+      <div class="btn btn-pink btn_start" @click="openModal('modal-01')"><img src="../assets/images/start.png" alt="start"></div>
 
     </div>
     <div class="popup">
@@ -19,7 +22,7 @@
             <label for="check_policy" :class="[policy_check ? 'active' : 'inactive']"><a @click="openModal('modal-02')">利用規約</a> に同意します</label>
            
           </div>
-           <div class="btn-pink btn_ok" :class="[policy_check ? 'inactive' : 'active']" @click="closeModal(),changePage('/tutorial')"><img src="../assets/images/btn_ok.png" alt="ok"></div>
+           <div class="btn btn-pink btn_ok" :class="[policy_check ? 'inactive' : 'active']" @click="closeModal(),changePage('/tutorial')"><img src="../assets/images/btn_ok.png" alt="ok"></div>
         </div>
 
       </div>
@@ -52,7 +55,7 @@
              </dl>
             </div>
          
-           <div class="btn-pink btn_ok" @click="closeModal(),changePage('/tutorial')"><img src="../assets/images/btn_ok.png" alt="ok"></div>
+           <div class="btn btn-pink btn_ok" @click="closeModal(),changePage('/tutorial')"><img src="../assets/images/btn_ok.png" alt="ok"></div>
         </div>
       </div>
     </div>

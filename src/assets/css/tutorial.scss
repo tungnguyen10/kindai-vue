@@ -9,16 +9,270 @@
 
 .tutorial{
   position: relative;
-  .btn-show-step{
-    position: absolute;
-    top: 2.5%;
-    right: 5%;
-    width: 60px;
-    height: 60px;
-    z-index: 9;
-    background: #000;
+  height: 100vh;
+  .avatar_area {
+    height: 82vh;
+    position: relative;
+    background: url(../assets/images/bg.jpg) repeat-y center center/100%;
+    z-index: 1;
+    &.bg_02 {
+      background: #cbb4ff;
+    }
+    &.bg_03 {
+      background: #ffa3c6;
+    }
+    &.bg_04 {
+      background: #ffa664;
+    }
+    &.bg_05 {
+      background: #79f5d3;
+    }
+    &.bg_06 {
+      background: #77c1ff;
+    }
+    .help {
+      position: absolute;
+      right: 3%;
+      top: 3%;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 1px solid #65426c;
+      color: #65426c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.2rem;
+      font-weight: 900;
+      @include sp {
+        right: 4%;
+        width: 30px;
+        height: 30px;
+        font-size: 2.1rem;
+      }
+    }
+    .bg-change {
+      position: absolute;
+      right: 2%;
+      top: 12%;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #00476c;
+      background: #fff center/20px no-repeat;
+      z-index: 2;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 62.81 62.81'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%2300476c;%7D%3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='レイヤー_1' data-name='レイヤー 1'%3E%3Cpath class='cls-1' d='M0,0V62.81H62.81V0ZM52.52,56.61H10.29c-3.35,0-5-4.72-2.66-7.48l16.14-18.8a3.41,3.41,0,0,1,5.33,0l6.27,7.31L37.68,35A3.39,3.39,0,0,1,43,35L55.18,49.13C57.55,51.89,55.87,56.61,52.52,56.61ZM49,24a7.27,7.27,0,1,1,7.27-7.27A7.27,7.27,0,0,1,49,24Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      @include sp {
+        right: 3%;
+        top: 9%;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .avatar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 15vw;
+      bottom: 15vw;
+      img {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 0;
+      }
+      // .item02 {
+      //   position: absolute;
+      //   left: 22.4%;
+      //   width: 59.5%;
+      //   top: 22%;
+      // }
+      // .item03 {
+      //   position: absolute;
+      //   left: 36%;
+      //   width: 26.5%;
+      //   top: 45.2%;
+      // }
+      // .item04 {
+      //   position: absolute;
+      //   left: 12%;
+      //   width: 72%;
+      //   top: 80%;
+      // }
+      // .item05 {
+      //   position: absolute;
+      //   left: 18.5%;
+      //   width: 63%;
+      //   top: 12.8%;
+      // }
+      // .item06 {
+      //   position: absolute;
+      //   left: 25.5%;
+      //   width: 50%;
+      //   top: 3%;
+      // }
+    }
+    .change_color {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      li{
+        width: 120px;
+        height: 120px;
+        @include sp{
+          width: 60px;
+          height: 60px;
+        }
+        margin-bottom: 10px;
+        &::after{
+          bottom: -8%;
+        }
+        p{
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          padding: 10%;
+        }
+        @include hover{
+          p, &::before{
+            bottom: -8%;
+          }
+          p{
+            padding: 10%;
+          }
+        }
+        &.active {
+          p, &::before{
+            bottom: -8%;
+          }
+          p{
+            padding: 10%;
+          }
+        }
+      }
+    }
+    .choose_bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+      background-color: rgb(255, 255, 255);
+      z-index: 9;
+      width: 90%;
+      max-width: 670px;
+      border: 3px solid #005071;
+      @include sp {
+        border-width: 2px;
+      }
+      .close{
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        top: -8%;
+        right: -6%;
+        @include sp{
+          width: 44px;
+          height: 43px;
+          position: absolute;
+          top: -8%;
+          right: -4%;
+        }
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 6% 4%;
+        justify-content: space-between;
+        li{
+          margin-bottom: 30px;
+          width: 180px;
+          height: 180px;
+          @include sp{
+            margin-bottom: 15px;
+            width: 90px;
+            height: 90px;}
+          p{
+            padding: 16.5%;
+          }
+        }
+      }
+    }
   }
-  .popup{
+  .tab_area {
+    height: 23vh;
+    margin-top: -5vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    .tab_list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5%;
+      .tab {
+        flex-basis: 0;
+        flex-grow: 1;
+        background-color: #dbf3ff;
+        padding: 8px 16px;
+        border: 2px solid #0071c0;
+        position: relative;
+        @include sp {
+          padding: 4px 8px;
+          border-radius: 10px 10px 0 0;
+        }
+        &.active {
+          background-color: #61cdff;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #61cdff;
+          }
+        }
+        &.disabled {
+          background-color: #8fa6b2;
+          pointer-events: none;
+          border-color: #005b94;
+        }
+      }
+    }
+    .tab_content {
+      height: 100%;
+      background-color: #61cdff;
+      border-top: 2px solid #0071c0;
+      margin-top: -2px;
+      padding: 20px;
+      overflow-y: scroll;
+      .item_list {
+        width: 1200px;
+        @include sp{
+          width: 600px;
+        }
+        .item {
+          width: 180px;
+          height: 180px;
+          margin-right: 20px;
+          vertical-align: middle;
+          @include sp {
+            margin-right: 10px;
+            width: 90px;
+            height: 90px;
+          }
+        }
+      }
+    }
+  }
+  .popup {
     display: block;
+    position: absolute;
   }
+  
 }

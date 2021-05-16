@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "../base/_setting.scss";
 
 //------------------------------------------------------------------------------
 //
@@ -6,11 +7,58 @@
 //  
 //------------------------------------------------------------------------------
 .btn {
-  &-pink{
-    position: relative;
-    cursor: pointer;
-    padding: 4% 0;
+  position: relative;
+  cursor: pointer;
+  padding: 4% 0;
+  &::before, &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: 3px solid #000;
+    background: #fff;
+    left: 0;
+    right: 0;
+  }
+  &::before {
+    bottom: -10px;
+    z-index: 1;
+    border: 3px solid #000;
+    @include sp {
+      border-radius: 28px;
+      bottom: -7px;
+      border-width: 2px;
+    }
+  }
+  &::after {
+    bottom: 0;
+    z-index: 1;
+    border: 3px solid #000;
+    background: $pink;
+    @include transition;
+    @include sp{
+      border-radius: 28px;
+      bottom: 0;
+      border-width: 2px;
+    }
+  }
+  img{
+    @include transition;
+  }
+  @include hover{
     img{
+      bottom: -10px;
+    }
+    &::after {
+      bottom: -10px;
+      @include sp{
+        bottom: -7px;
+      }
+    }
+  }
+  &-pink{
+    img {
       position: relative;
       z-index: 2;
       @include transition;
@@ -18,49 +66,36 @@
       margin: auto;
       display: block;
     }
-
-    &::before, &::after{
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50px;
-      border: 3px solid #000;
-      background: #fff;
-      left: 0;
-      right: 0;
-    }
-    &::before {
-      bottom: -10px;
-      z-index: 1;
-      border: 3px solid #000;
-      @include sp{
-        border-radius: 28px;
-        bottom: -7px;
-        border-width: 2px;
-      }
-    }
     &::after {
-      bottom: 0;
-      z-index: 1;
-      border: 3px solid #000;
       background: $pink;
-      @include transition;
-      @include sp{
-        border-radius: 28px;
-        bottom: 0;
-        border-width: 2px;
-      }
     }
-    @include hover{
-      img{
-        bottom: -10px;
+  }
+  &-submit {
+    width: 55px;
+    height: 50px;
+    bottom: 80px;
+    right: 20px;
+    padding: 0;
+    position: absolute;
+    &:before, &:after {
+      border-radius: 10px;
+      border-color: #5e3c00;
+    }
+    &:after {
+      background-color: #fef734;
+      content: '完成!';
+      text-align: center;
+      font-weight: bold;
+      color: #5e3c00;
+      line-height: 45px;
+    }
+    &.disabled {
+      pointer-events: none;
+      &:before {
+        background-color: #b2b2b2;
       }
-      &::after {
-        bottom: -10px;
-        @include sp{
-          bottom: -7px;
-        }
+      &:after {
+        background-color: #b1ac24;
       }
     }
   }
@@ -98,3 +133,66 @@
 	
 }
 
+.btn-item{
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  &::before, &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #006088;
+    z-index: 1;
+  }
+  &::after{
+    bottom: -8%;
+    z-index: 0;
+  }
+  p {
+    position: relative;
+    z-index: 1;
+    width: 89%;
+    border-radius: 50%;
+    height: 89%;
+    background-color: #fff;
+    border: 2px solid #006088;
+    text-align: center;
+    margin: 6%;
+    padding: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @include hover{
+    &::before, &::after{
+      background-color: #fff;
+      border: 2px solid #b6005e;
+    }
+    &::before{
+      bottom: -8%;
+    }
+    p{
+      background-color: #ffb7cc;
+      border: 2px solid #b6005e;
+      bottom: -7%;
+    }
+  }
+  &.active{
+    &::before, &::after{
+      background-color: #fff;
+      border: 2px solid #b6005e;
+    }
+    &::before{
+      bottom: -8%;
+    }
+    p{
+      background-color: #ffb7cc;
+      border: 2px solid #b6005e;
+      bottom: -7%;
+    }
+  }
+}

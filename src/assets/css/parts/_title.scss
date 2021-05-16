@@ -5,7 +5,37 @@
 //	title 共通設定
 //  
 //------------------------------------------------------------------------------
-.ttl {
 
+.ttl-share{
+  font-size: 2.6rem;
+    font-family: $fontBody;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 18px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      background: url(./assets/images/line_left.png) no-repeat center center/100% 100%;
+      width: 13px;
+      height: 25px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -8%;
+      background: url(./assets/images/line_right.png) no-repeat center center/100% 100%;
+      width: 13px;
+      height: 25px;
+    }
+    @include sp{
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      &::before, &::after{
+        width: 7px;
+        height: 14px;
+      }
+    }
 }
 

@@ -1,6 +1,6 @@
 <template>
 	<div class="share_bottom">
-		<h2>{{titleshare}}</h2>
+		<h2 class="ttl-share">{{titleshare}}</h2>
 		<div class="share_bottom__content">
 			<p class="left"><img :src="require('../assets/images/' + img1_share + '.png')" alt="photo" /></p>
 			<ul>

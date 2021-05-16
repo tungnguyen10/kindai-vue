@@ -19,7 +19,7 @@
     color: #fff;
     overflow: hidden;
     text-align: center;
-    padding: 4% 0 5.5%;
+    padding: 4% 0 4.5%;
     &::before {
       content: "";
       position: absolute;
@@ -36,7 +36,23 @@
       position: relative;
     }
     h2 {
-      padding: 0.7% 8% 2% 8%;
+      padding: 10px 8% 0;
+      margin-bottom: 3rem;
+      p {
+        font-size: 2.6rem;
+        margin-bottom: 10px;
+        font-weight: normal;
+        @include sp {
+          font-size: 1.5rem;
+        }
+        span {
+          font-size: 2rem;
+          @include sp {
+            font-size: 1rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
     }
    
     .txt {
@@ -49,10 +65,12 @@
     }
   }
   &__content {
-    padding-top: 58px;
+    padding: 55px 0;
     overflow: hidden;
     position: relative;
-    padding-bottom: 64px;
+    @include sp {
+      padding: 47px 0;
+    }
     &::after{
       content: '';
       position: absolute;
@@ -91,11 +109,6 @@
         margin: auto;
         display: block;
       }
-    }
-    @include sp {
-      padding-top: 23px;
-      padding-bottom: 40px;
-      
     }
   }
 }

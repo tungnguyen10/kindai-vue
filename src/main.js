@@ -19,9 +19,8 @@ export var globalFuncs = {
       store.commit('changeSpeed', ii);
       if ( ii == 100 ) {
         clearInterval(tt);
+        router.push(i).catch(() => {});
         $('.loading').removeClass('active');
-        router.push(i).catch(() => {
-        });
       }
       ii++;
     }, 20);

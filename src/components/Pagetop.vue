@@ -2,14 +2,14 @@
   <div class="l-page-top">
     <div class="l-page-top__first">
       <h2>
-        <p>Redfish<span>×</span>近畿大学農学部</p>
+        <p>近畿大学農学部<span>×</span>Redfish</p>
         <img src="../assets/images/pagetop_ttl.png" alt="Redfish×近畿大学農学部 my Nogaku Styles">
       </h2>
       <p class="txt">自分だけのオリジナルコーディネートで農学を着こなそう！<br>選んだアイテムからあなたにぴったりの学科が見つかるかも？！</p>
     </div>
     <div class="l-page-top__content">
       <p class="photo"><img src="../assets/images/img_character.png" alt="photo"></p>
-      <div class="btn btn-pink btn_start" @click="openModal('modal-01')"><img src="../assets/images/start.png" alt="start"></div>
+      <div class="btn btn-pink btn_start" @click="first_time_open ? openModal('modal-01') : changePage('/tutorial')"><img src="../assets/images/start.png" alt="start"></div>
 
     </div>
     <div class="popup">
@@ -70,6 +70,7 @@ export default {
   data() {
     return {
       policy_check: false,
+      first_time_open: globalFuncs.first_time_open,
     }
   },
   methods: {

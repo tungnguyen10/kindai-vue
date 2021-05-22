@@ -9,16 +9,22 @@
 
 .tutorial{
   position: relative;
-  height: 100vh;
-  &.modal-open{
+  @media screen and (max-width: 380px) {
+    overflow: auto;
+  }
+  
+  &.modal-open {
     max-height: 100vh;
     overflow: hidden;
   }
   .avatar_area {
-    height: 82vh;
     position: relative;
     background: url(../assets/images/bg.jpg) repeat-y center center/100%;
     z-index: 1;
+    padding: 10% 0 20%;
+    @include sp{
+      height: calc(100vh - 130px);
+    }
     &.bg_02 {
       background: #cbb4ff;
     }
@@ -36,21 +42,24 @@
     }
     .help {
       position: absolute;
-      right: 3%;
-      top: 3%;
+      cursor: pointer;
+      right: 5%;
+      top: 39px;
       width: 60px;
       height: 60px;
       border-radius: 50%;
       background-color: #fff;
-      border: 1px solid #65426c;
+      border: 3px solid #65426c;
       color: #65426c;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 4.2rem;
       font-weight: 900;
+      z-index: 9;
       @include sp {
-        right: 4%;
+        border-width: 2px;
+        top: 20px;
         width: 30px;
         height: 30px;
         font-size: 2.1rem;
@@ -58,64 +67,25 @@
     }
     .bg-change {
       position: absolute;
-      right: 2%;
-      top: 12%;
+      right: 4%;
+      top: 120px;
       width: 80px;
       height: 80px;
+      cursor: pointer;
       border-radius: 50%;
-      border: 2px solid #00476c;
-      background: #fff center/20px no-repeat;
-      z-index: 2;
+      border: 3px solid #00476c;
+      background: #fff center/40px no-repeat;
+      z-index: 9;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 62.81 62.81'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%2300476c;%7D%3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='レイヤー_1' data-name='レイヤー 1'%3E%3Cpath class='cls-1' d='M0,0V62.81H62.81V0ZM52.52,56.61H10.29c-3.35,0-5-4.72-2.66-7.48l16.14-18.8a3.41,3.41,0,0,1,5.33,0l6.27,7.31L37.68,35A3.39,3.39,0,0,1,43,35L55.18,49.13C57.55,51.89,55.87,56.61,52.52,56.61ZM49,24a7.27,7.27,0,1,1,7.27-7.27A7.27,7.27,0,0,1,49,24Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       @include sp {
-        right: 3%;
-        top: 9%;
+        background: #fff center/20px no-repeat;
+        top: 60px;
         width: 40px;
+        border-width: 2px;
         height: 40px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 62.81 62.81'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%2300476c;%7D%3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='レイヤー_1' data-name='レイヤー 1'%3E%3Cpath class='cls-1' d='M0,0V62.81H62.81V0ZM52.52,56.61H10.29c-3.35,0-5-4.72-2.66-7.48l16.14-18.8a3.41,3.41,0,0,1,5.33,0l6.27,7.31L37.68,35A3.39,3.39,0,0,1,43,35L55.18,49.13C57.55,51.89,55.87,56.61,52.52,56.61ZM49,24a7.27,7.27,0,1,1,7.27-7.27A7.27,7.27,0,0,1,49,24Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      
       }
-    }
-    .avatar {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 15vw;
-      bottom: 15vw;
-      img {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        top: 0;
-      }
-      // .item02 {
-      //   position: absolute;
-      //   left: 22.4%;
-      //   width: 59.5%;
-      //   top: 22%;
-      // }
-      // .item03 {
-      //   position: absolute;
-      //   left: 36%;
-      //   width: 26.5%;
-      //   top: 45.2%;
-      // }
-      // .item04 {
-      //   position: absolute;
-      //   left: 12%;
-      //   width: 72%;
-      //   top: 80%;
-      // }
-      // .item05 {
-      //   position: absolute;
-      //   left: 18.5%;
-      //   width: 63%;
-      //   top: 12.8%;
-      // }
-      // .item06 {
-      //   position: absolute;
-      //   left: 25.5%;
-      //   width: 50%;
-      //   top: 3%;
-      // }
     }
     .change_color {
       display: flex;
@@ -124,13 +94,15 @@
       bottom: 10%;
       left: 5%;
       li{
+        cursor: pointer;
         width: 120px;
         height: 120px;
+        margin-bottom: 20px;
         @include sp{
           width: 60px;
           height: 60px;
+          margin-bottom: 10px;
         }
-        margin-bottom: 10px;
         &::after{
           bottom: -8%;
         }
@@ -160,6 +132,7 @@
     }
     .choose_bg {
       position: fixed;
+      cursor: pointer;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -197,47 +170,56 @@
           height: 180px;
           @include sp{
             margin-bottom: 15px;
-            width: 90px;
-            height: 90px;}
+            width: 30%;
+            height: auto;
+          }
           p{
-            padding: 16.5%;
+            padding: 17.5%;
           }
         }
       }
     }
   }
   .tab_area {
-    height: 23vh;
-    margin-top: -5vh;
+    margin-top: -11%;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 2;
+    @include sp{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
     .tab_list {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0 5%;
       .tab {
+        cursor: pointer;
         flex-basis: 0;
         flex-grow: 1;
         background-color: #dbf3ff;
         padding: 8px 16px;
-        border: 2px solid #0071c0;
+        border: 3px solid #0071c0;
         position: relative;
+        border-radius: 20px 20px 0 0;
         @include sp {
           padding: 4px 8px;
           border-radius: 10px 10px 0 0;
+          border-width: 2px;
         }
         &.active {
           background-color: #61cdff;
           &:after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 3px;
             background-color: #61cdff;
           }
         }
@@ -251,14 +233,14 @@
     .tab_content {
       height: 100%;
       background-color: #61cdff;
-      border-top: 2px solid #0071c0;
-      margin-top: -2px;
+      border-top: 3px solid #0071c0;
+      margin-top: -3px;
       padding: 20px;
-      overflow-y: scroll;
+      overflow-x: scroll;
       .item_list {
-        width: 1200px;
-        @include sp{
-          width: 600px;
+        width: 1400px;
+        @include sp {
+          width: 700px;
         }
         .item {
           width: 180px;
@@ -277,6 +259,10 @@
   .popup {
     display: block;
     position: absolute;
+    
+    @include sp {
+      position: fixed
+    }
   }
   
 }

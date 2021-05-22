@@ -1,7 +1,7 @@
 <template>
 	<div class="box-play">
 		<h2 class="ttl-share">{{titleshare}}</h2>
-		<div class="btn btn-more" @click='openPlayAgain = !openPlayAgain'><img :src="require('../assets/images/' + imgPlay + '.png')" :alt="alt" /></div>
+		<div class="btn btn-more" @click='emitClick()'><img :src="require('../assets/images/' + imgPlay + '.png')" :alt="alt" /></div>
 	</div>
 </template>
 
@@ -19,6 +19,11 @@ export default {
       openPlayAgain: false,
     }
   },
+  methods: {
+  	emitClick: function() {
+  		this.$emit('playAgain');
+  	}
+  }
 
 };
 </script>

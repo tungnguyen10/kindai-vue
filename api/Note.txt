@@ -1,0 +1,126 @@
+====== Create a database ======
+Example: kindai
+
+====== API ======
+* GET - Parameter: uuid (string)
+example: http://kindai.test/api/?uuid=oy3RQgXDBYdR
+return JSON example:
+{
+   "message":"Create successfully.",
+   "options":{
+	  "id":"Dp8LdskQQlYq",
+	  "content":{
+		 "key":"top",
+		 "value":2,
+		 "chart":{
+			"1":16.666666666666664,
+			"2":50,
+			"3":16.666666666666664,
+			"4":16.666666666666664
+		 }
+	  }
+   }
+}
+
+* POST - Parameter: options (JSON)
+example: http://kindai.test/api/
+JSON example:
+{
+  "body": 1,
+  "hair": {
+	"value": 1,
+	"color": 3
+  },
+  "top": {
+	"value": 2,
+	"color": 2
+  },
+  "bottom": {
+	"value": 3,
+	"color": 3
+  },
+  "shoes": {
+	"value": 4,
+	"color": 3
+  },
+  "accessories1": {
+	"value": 5,
+	"color": 3
+  },
+  "accessories2": {
+	"value": 1,
+	"color": 3
+  },
+  "background": 4
+}
+
+return JSON example:
+{
+   "options":{
+	  "id":"Dp8LdskQQlYq",
+	  "content":{
+		 "key":"top",
+		 "value":2,
+		 "chart":{
+			"1":16.666666666666664,
+			"2":50,
+			"3":16.666666666666664,
+			"4":16.666666666666664
+		 }
+	  }
+   }
+}
+
+* PUT - Parameter: uuid (string), options (JSON)
+example: http://kindai.test/api/
+JSON example:
+{
+    "uuid": "xY5pbYuW6dVl",
+    "options": {
+        "body": 1,
+        "hair": {
+            "value": 1,
+            "color": 3
+        },
+        "top": {
+            "value": 2,
+            "color": 2
+        },
+        "bottom": {
+            "value": 4,
+            "color": 3
+        },
+        "shoes": {
+            "value": 2,
+            "color": 3
+        },
+        "accessories1": {
+            "value": 2,
+            "color": 3
+        },
+        "accessories2": {
+            "value": 3,
+            "color": 3
+        },
+        "background": 4,
+        "light": 1
+    }
+}
+return JSON example:
+{
+    "message": "Update successfully.",
+    "options": {
+        "id": "xY5pbYuW6dVl",
+        "options": "{\"body\":1,\"hair\":{\"value\":1,\"color\":3},\"top\":{\"value\":2,\"color\":2},\"bottom\":{\"value\":4,\"color\":3},\"shoes\":{\"value\":2,\"color\":3},\"accessories1\":{\"value\":2,\"color\":3},\"accessories2\":{\"value\":3,\"color\":3},\"background\":4,\"light\":1}",
+        "content": {
+            "key": "top",
+            "value": 2,
+            "chart": {
+                "1": 16.666666666666664,
+                "2": 50,
+                "3": 16.666666666666664,
+                "4": 16.666666666666664
+            }
+        }
+    }
+}

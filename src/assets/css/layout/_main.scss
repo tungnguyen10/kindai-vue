@@ -11,7 +11,15 @@
 //
 //------------------------------------------------------------------------------
 body {
+  position: relative;
   scroll-behavior: smooth;
+  &.freezePage{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
 }
 
 .l-inner {
@@ -48,14 +56,17 @@ body {
 //------------------------------------------------------------------------------
 .loading {
   background: $pink;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   right: 0;
   bottom: 0;
   z-index: 999;
   display: none;
   text-align: center;
+  max-width: 750px;
+  width: 100%;
   &.active {
     display: block;
   }
@@ -516,18 +527,25 @@ body {
     }
     &.step1 {
       top: 70%;
-      left: 0;
+      left: -2%;
       &::before,
       &::after {
         left: 20%;
       }
+      @include sp {
+        top: 73%;
+        left: 1%;
+      }
     }
     &.step2 {
-      top: 43%;
+      top: 46%;
       left: 18%;
       &::before,
       &::after {
         top: 60%;
+      }
+      @include sp {
+        top: 48.5%;
       }
     }
     &.step3 {
@@ -536,6 +554,9 @@ body {
       &::before,
       &::after {
         left: 30%;
+      }
+      @include sp {
+        top: 68%;
       }
     }
     &.step4 {
@@ -552,6 +573,20 @@ body {
       &::before,
       &::after {
         left: 81%;
+      }
+      @include sp {
+        top: 51%;
+      }
+    }
+    &.step6 {
+      top: 47%;
+      right: -2.5%;
+      &::before,
+      &::after {
+        left: 81%;
+      }
+      @include sp {
+        top: 51%;
       }
     }
     h2 {
@@ -601,6 +636,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 140px;
+    height: 120px;
+    cursor: pointer;
     img{
       width: 51px;
       position: relative;
@@ -616,6 +654,9 @@ body {
       border-radius: 20px;
       left: 0;
       z-index: 0;
+      @include sp{
+        border-width: 2px;
+      }
     }
     &::after{
       bottom: -7px;
@@ -639,4 +680,35 @@ body {
     }
   }
   
+}
+
+
+//------------------------------------------------------------------------------
+//
+//	avatar
+//
+//------------------------------------------------------------------------------
+
+.avatar {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  @include sp{
+    width: 100%;
+    transform: translateY(-45%);
+    top: 50%;
+  }
+  img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    &:first-child{
+      position: relative;
+      top: 0;
+      transform: translate(0);
+    }
+  }
 }

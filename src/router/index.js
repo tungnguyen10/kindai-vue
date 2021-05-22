@@ -24,7 +24,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "tutorial" */ '../views/Kekka.vue')
   },
   {
-    path: '/share',
+    path: '/share/:id',
     name: 'Share',
     component: () => import(/* webpackChunkName: "tutorial" */ '../views/Share.vue')
   }

@@ -19,7 +19,7 @@
     color: #fff;
     overflow: hidden;
     text-align: center;
-    padding: 4% 0 4.5%;
+    padding: 4% 0 6%;
     &::before {
       content: "";
       position: absolute;
@@ -30,18 +30,19 @@
       transform: rotate(-5deg);
       height: 100%;
       width: 106%;
-      top: 50%;
+      top: 43%;
     }
     > * {
       position: relative;
     }
     h2 {
-      padding: 10px 8% 0;
-      margin-bottom: 3rem;
+      padding: 10px 0 0;
+      margin-bottom: 1%;
       p {
         font-size: 2.6rem;
         margin-bottom: 10px;
         font-weight: normal;
+        font-weight: bold;
         @include sp {
           font-size: 1.5rem;
         }
@@ -87,6 +88,14 @@
       margin-bottom: 5%;
       position: relative;
       z-index: 1;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+      @include sp{
+        cursor: pointer;
+      }
       &::-webkit-scrollbar {
         display: none;
       }

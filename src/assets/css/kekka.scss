@@ -7,58 +7,126 @@
 //  
 //------------------------------------------------------------------------------
 
-.kekka{
-  background: url(/img/bg.af898849.jpg) repeat-y top center/100%;
-  position: relative; 
-  &.active{
-    overflow: hidden;
-    max-height: 100vh;
-  }
-  .btn-home{
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    top: 50px;
-    left: 50px;
-    z-index: 9;
-    cursor: pointer;
-    &.right{
-      left: inherit;
-      right: 50px;
-      @include sp{
-        right: 6%;
-      }
-    }
-    @include sp{
-      width: 40px;
-      height: 40px;
-      top: 20px;
-      left: 6%;
-    }
-  }
-  .confirm-img{
-    position: relative;
-    &.active{
-      &::before{
-        opacity: 1;
-      }
-    }
+.kekka {
+  &.active {
     &::before{
-      content: '';
-      position: absolute;
+      position: fixed;
       top: 0;
-      bottom: 0;
-      background: url(../assets/images/bg_light.png) no-repeat center center/ 100% 100%;
       left: 0;
+      bottom: 0;
       right: 0;
-      z-index: 0;
-      opacity: 0;
-    }
-    img{
-      position: relative;
+      z-index: 9;
+      pointer-events: none;
     }
   }
-  .save{
+  .avatar_area {
+    position: relative;
+    background: url(../assets/images/bg.jpg) repeat-y center center/100%;
+    z-index: 1;
+    padding-top: 12%;
+    &.active{
+      overflow: hidden;
+      max-height: 100vh;
+    }
+    &.bg_02 {
+      background: #cbb4ff;
+    }
+    &.bg_03 {
+      background: #ffa3c6;
+    }
+    &.bg_04 {
+      background: #ffa664;
+    }
+    &.bg_05 {
+      background: #79f5d3;
+    }
+    &.bg_06 {
+      background: #77c1ff;
+    }
+    .btn-home {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      top: 2.8%;
+      left: 6.5%;
+      z-index: 9;
+      cursor: pointer;
+      &.right{
+        left: inherit;
+        right: 6.5%;
+        @include sp {
+          right: 5%;
+        }
+      }
+      @include sp {
+        width: 40px;
+        height: 40px;
+        top: 4%;
+        left: 5%;
+      }
+    }
+    .avatar {
+      margin-bottom: -9vh;
+      &.active{
+        &::before{
+          opacity: 1;
+        }
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        top: -9%;
+        bottom: 10%;
+        background: url(/img/bg_light.e88c6a21.png) no-repeat center bottom/100%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        z-index: 2;
+      }
+      img{
+        &:first-child{
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      @include sp{
+        transform: translateY(0);
+        top: 0;
+        margin-bottom: -4vh;
+      }
+      .result-wrapper {
+        position: relative;
+        z-index: 3;
+        img{
+          &:first-child{
+            position: relative;
+            top: 0;
+            transform: translate(0);
+          }
+          position: absolute;
+          left: 0;
+          width: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .result {
+        position: absolute;
+        top: -12vw;
+        width: 100%;
+        z-index: 3;
+        transform: none;
+        opacity: 0;
+        height: 100%;
+      }
+    }
+  }
+  &.share{
+    .avatar{
+      margin-bottom: 0;
+    }
+  }
+  .save {
     background: #fff;
     color: #1b1b1b;
     text-align: center;
@@ -66,11 +134,15 @@
     line-height: (28/27);
     font-weight: bold;
     padding: 2% 0;
-    @include sp{
+    position: relative;
+    z-index: 3;
+    @include sp {
       font-size: 13.5px;
     }
   }
-  .share_bottom{
+  .share_bottom {
+    position: relative;
+    z-index: 3;
     .left{
       display: none;
     }
@@ -106,6 +178,12 @@
         border-width: 2px;
         border-radius: 10px;
       }
+      .k-progress-outer-line {
+        border-radius: 10px;
+        @include sp {
+          border-radius: 3px;
+        }
+      }
       &:nth-of-type(1){
         padding: 5% 6% 6%;
         margin-bottom: 2%;
@@ -135,7 +213,7 @@
               color: #fff;
               text-align: center;
               position: relative;
-              .k-progress-text{
+              .k-progress-text {
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -143,25 +221,68 @@
                 font-size: 20px;
                 color: #fff;
                 margin: 0;
-                @include sp{
-                  font-size: 11px;
+                @include sp {
+                  font-size: 9px;
                 }
               }
               .k-progress{
                 margin: 0;
+                &.zero{
+                  padding-left: 15px;
+                  .k-progress-text {
+                    @include sp {
+                      font-size: 11px;
+                    }
+                  }
+                  &.orange{
+                    .k-progress-text{
+                      color: #ffb607;
+                    }
+                  }
+                  &.blue{
+                    .k-progress-text{
+                      color: #29a7ff;
+                    }
+                  }
+                  &.yell{
+                    .k-progress-text{
+                      color: #ffec4c;
+                    }
+                  }
+                  &.pink{
+                    .k-progress-text{
+                      color: #f986c4;
+                    }
+
+                  }
+                  &.aqua{
+                    .k-progress-text{
+                      color: #63e2d5;
+                    }
+
+                  }
+                  &.red{
+                    .k-progress-text{
+                      color: #ff674e;
+                    }
+
+                  }
+                }
               }
               .k-progress-outer{
-                margin-right: 0;
+                margin-right: 0; 
                 padding-right: 0;
               }
               .k-progress-outer-bg-border{
                 background: none !important;
               }
               .k-progress-outer-line{
-                height: 30px !important;
-                margin-top: -30px;  
+                @include pc {
+                  height: 30px !important;
+                }
+                margin-top: -30px;
               }
-              @include sp{
+              @include sp {
                 font-size: 12px;
               }
             }
@@ -181,12 +302,29 @@
           span{
             display: inline-block;
             color: #fff;
-            background: #ffb607;
             padding: 2px 4px 3px;
             border-radius: 5px;
             margin-right: 5px;
+            &.orange {
+              background: #ffb607;
+            }
+            &.blue {
+              background: #29a7ff;
+            }
+            &.yell {
+              background: #ffec4c;
+            }
+            &.pink {
+              background: #f986c4;
+            }
+            &.aqua {
+              background: #63e2d5;
+            }
+            &.red {
+              background: #ff674e;
+            }
           }
-          @include sp{
+          @include sp {
             font-size: 14px;
           }
         }
@@ -199,7 +337,7 @@
       text-align: center;
       color: #fff;
       padding: 3% 0 5.5%;
-      @include sp{
+      @include sp {
         font-size: 10px;
       }
     }
@@ -211,11 +349,17 @@
     &::before{
       content: '';
       position: absolute;
-      background: url(../assets/images/img_diver.png);
+      background: url(../assets/images/img_diver.png) no-repeat center center/cover;
       width: 137px;
       height: 111px;
       top: 15px;
       left: 70px;
+      @include sp{
+        width: 70px;
+        height: 55px;
+        top: 10px;
+        left: 9%;
+      }
     }
     .ttl{
       padding-top: 4%;
@@ -232,11 +376,11 @@
         position: relative;
         margin: 0 5% 3%;
         overflow: hidden;
-        @include sp{
+        @include sp {
           border-width: 2px;
           border-radius: 10px;
         }
-        h3{
+        h3 {
           color: #fff;
           text-align: center;
           font-size: 36px;
@@ -244,16 +388,17 @@
           line-height: 1.5;
           padding: 2% 0 1.5%;
           background: #29a7ff;
-          @include sp{
+          @include sp {
             font-size: 18px;
             
           }
         }
         &-box{
           display: flex;
+          align-items: center;
           &__left{
             width: 45%;
-            padding: 10% 3px 6% 5%;
+            padding: 3% 3% 3% 5%;
           }
           &__right{
             width: 55%;
@@ -323,13 +468,16 @@
   }
   .box-copy{
     background: #fef734;
+    outline: 0;
     text-align: center;
     padding: 1% 0 12%;
     cursor: pointer;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .copy-url{
       position: relative;
-      width: 56%;
+      min-width: 56%;
       display: inline-block;
       margin: auto;
       border-style: solid;
@@ -339,7 +487,7 @@
       background-color: rgb(255, 255, 255);
       font-size: 22px;
       font-weight: bold;
-      padding: 2% 0;
+      padding: 2% 3%;
       margin: 1% 0;
       &::before{
         content: "Copied";
@@ -371,30 +519,9 @@
       }
     }
   }
-  .play-again{
-    position: fixed;
-    width: 90%;
-    max-width: 675px;
-    top: 50%;
-    z-index: 99;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    text-align: center;
-    overflow: hidden;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(31, 31, 31);
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    h2{
-      font-size: 50px;
-      font-weight: bold;
-      color: #fff;
-      background: #d28bff;
-      padding: 4.5% 0;
-      @include sp{
-        font-size: 25px;
-      }
+  .play-again {
+    .popup__content_box {
+      padding: 0;
     }
     .txt{
       font-size: 22px;
